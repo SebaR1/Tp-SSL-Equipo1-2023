@@ -8,7 +8,6 @@
 - Integrantes:
 
   - **SebaR1:**
-
     - Legajo: 209.176-8
     - Romero Rocha
     - Sebastian
@@ -33,6 +32,10 @@
       - Feldenblum
       - Tamir
 
+   - **RoyerYampasi**
+      - Legajo: 2041741
+      - Yampasi
+      - Royer 
 
 ### Secuencia de pasos.
 
