@@ -13,7 +13,20 @@
     - Romero Rocha
     - Sebastian
 
-  - **otro...**
+  - **LucasMPerez**
+    - Legajo: 168.982-4 
+    - Pérez
+    - Lucas Matías
+  
+  - **FranX90** 
+    - Legajo: 209.947-0
+    - Lezcano
+    - Francisco Daniel
+  
+  - **JulianTettamanti**
+    - Legajo: 208.155-6
+    - Tettamanti
+    - Julian
 
 ### Secuencia de pasos.
 
@@ -53,6 +66,24 @@
 
    **a.** Se agregó un argumento más para corregir que es el decimal esperado por %d y le pasamos el entero i. Funciono correctamente y dio el valor esperado
 
+
 5. **Remoción de prototipo**
 
-   **a.**
+   **a.** Escribimos hello7.c sin el prototipo
+
+   **b.** 
+      
+      **b.i** Arroja dos warnings, *declaracion implicita de la funcion 'printf'* y *incompatibilidad en la declaracion implicita de la funcion built-in 'printf'*
+
+      **b.ii** Un prototipo es una declaracion de la funcion donde contiene el encabezado y los parametros que usa dicha funcion.
+      Podrian generar dichos prototipos a traves de la declaracion de dicha funcion o a traves de la implementacion
+
+      **b.iii** Declaracion implicita de una funcion, es aquella que no esta declarada como prototipo si no que es definida directamente
+
+      **b.iv** La especificacion es el standar del lenguaje que indica que normas debe cumplir la implementacion de C
+
+      **b.v** En clang cuando no hacemos un #include <stdio.h> detecta a printf() como un error porque no soporta declaraciones implicitas, mientras que GCC tiene a printf como funcion built-in y solo genera warnings
+
+      **b.vi** Una funcion built-in es una funcion definida en la implementacion, como es el caso de *printf* en GCC
+
+      **b.vii** Funciona bien porque GCC lo vincula automaticamente con stdio.h ya que GCC esta basado proyecto GNU de linux, con lo cual debe estar adaptado para todas las versiones, donde las versiones más antiguas toleran declaracion implicitas y las mas actuales no. GCC no va contra la especificacion porque no prohibe las declaraciones implicitas, si no que reglamenta que un codigo bien escrito no contiene declaraciones implicitas
