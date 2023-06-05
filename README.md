@@ -36,3 +36,8 @@
       - Legajo: 2041741
       - Yampasi
       - Royer 
+    
+    - **LautaroAguerreche**
+      - Legajo: 1778171
+      - Aguerreche
+      - Lautaro
