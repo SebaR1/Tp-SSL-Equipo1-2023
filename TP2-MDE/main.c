@@ -10,13 +10,13 @@ int main ()
         enum {CANTIDAD_DE_CONTADORES=15};
         unsigned v[CANTIDAD_DE_CONTADORES]={0};       
         
-    cantidadDePalabrasPorSuLongitud ( v, CANTIDAD_DE_CONTADORES, stdin);
+    cantidadDePalabrasPorSuLongitud (v, CANTIDAD_DE_CONTADORES, stdin);
 
     for(i;i<15;i++){
     cantidadDePalabras = cantidadDePalabras + v[i];
     }
 
-    dibujarHistograma(v, cantidadDePalabras, CANTIDAD_DE_CONTADORES);
+    dibujarHistograma(v, CANTIDAD_DE_CONTADORES);
 
 
  //   for (i=0;i<15;i++){

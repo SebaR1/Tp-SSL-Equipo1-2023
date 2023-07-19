@@ -8,7 +8,7 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
     typedef enum {IN,OUT} State;
     State state = OUT;
 
-    while (  (flujo = fgetc(file)) != EOF ){
+    while (  (flujo = getc(file)) != EOF ){
         switch (state) {
             case OUT:
                 switch (flujo) //Si esta en OUT y recibe un caracter:  

@@ -1,1 +1,1 @@
-void dibujarHistograma (unsigned vectorContador[],unsigned cantidadDePalabras, int cantContadores);
+void dibujarHistograma (unsigned vectorContador[], int cantContadores);
