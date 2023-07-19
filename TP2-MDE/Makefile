@@ -29,4 +29,4 @@ run2: programa2
 	./programa2 < archivo.txt
 
 clean:
-	rm -f main.o histograma-1-enum-switch.o graficador.o histograma-2-goto-o programa1 programa2
+	rm -f main.o histograma-1-enum-switch.o graficador.o histograma-2-goto.o programa1 programa2

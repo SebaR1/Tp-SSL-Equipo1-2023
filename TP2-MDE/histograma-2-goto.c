@@ -6,8 +6,9 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
     int flujo;
     unsigned cc = 0;
 
-    while (  (flujo = getc(file)) != EOF ){
-        if(flujo == ' ' || flujo == '\n' || flujo == '\t' ) goto out;
+    do  {
+        flujo = getc(file);
+        if(flujo == ' ' || flujo == '\n' || flujo == '\t' || flujo == EOF) goto out;
         else goto in;
 
         out: if(cc != 0){
@@ -18,5 +19,5 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
         }
         continue;
         in: cc++;   
-    }   
+    } while (flujo != EOF);
 }

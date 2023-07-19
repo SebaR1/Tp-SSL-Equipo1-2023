@@ -8,7 +8,9 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
     typedef enum {IN,OUT} State;
     State state = OUT;
 
-    while (  (flujo = getc(file)) != EOF ){
+    do
+    {
+        flujo = getc(file);
         switch (state) {
             case OUT:
                 switch (flujo) //Si esta en OUT y recibe un caracter:  
@@ -28,7 +30,8 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
                 {
                 case ' ': 
                 case '\n'://Si en IN leo un espaciador.
-                case'\t': 
+                case'\t':
+                case EOF:
                     if(cc>cantContadores-1){cc=cantContadores;}
                     vectorContador[cc-1]++;
                     cc=0;
@@ -40,5 +43,5 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
                 }
                 break;
          }    
-    }
+    } while (flujo != EOF);
 }
