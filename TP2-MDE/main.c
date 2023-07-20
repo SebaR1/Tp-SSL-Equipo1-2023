@@ -19,12 +19,12 @@ int main ()
     dibujarHistograma(v, CANTIDAD_DE_CONTADORES);
 
 
- //   for (i=0;i<15;i++){
- //       if(i!=14){printf ("Longitud %d,%3u\n",i+1,v[i]);}
- //           else {
- //       printf("mayor o igual 15, %u\n",v[14]);
- //           }
- //   }
+ for (i=0;i<15;i++){
+       if(i!=14){printf ("Longitud %d,%3u\n",i+1,v[i]);}
+           else {
+        printf("mayor o igual 15, %u\n",v[14]);
+            }
+    }
 
   
 }
