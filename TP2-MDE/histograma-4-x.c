@@ -12,14 +12,14 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
 
         if(flujo == ' ' || flujo == '\n' || flujo == '\t' || flujo == EOF){
             sumarValorAVector(vectorContador, cantContadores, cc);
+            cc=0;
         } else {
             ++cc;
         } 
-
+    
         flujo = getc(file);
     }
-
-
+    sumarValorAVector(vectorContador, cantContadores, cc);
 }
 
 void sumarValorAVector(unsigned vectorContador[], int cantContadores, int cc){
