@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "histograma.h"
+void stateOut(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* );
+void stateIn(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* );
 
 void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContadores ,FILE* file )
 {
