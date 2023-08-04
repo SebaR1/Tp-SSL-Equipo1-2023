@@ -10,5 +10,4 @@ O -> I [label="no espaciador \n ++cc", labeldistance="1", curve="-0.4", fontsize
 I -> O [label = "espaciador \n (v[i]=cl, i++) \n cl=0", labeldistance="1" ,curve="-0.4", fontsize="7"];
 I -> I [label = "no espaciador" ,fontsize="7"];
 O -> O [label = "espaciador" ,fontsize="7"]
-
 }

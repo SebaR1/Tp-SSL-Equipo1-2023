@@ -27,7 +27,9 @@ void sumarValorAVector(unsigned vectorContador[], int cantContadores, int cc){
             vectorContador[cantContadores-1]++;
             cc=0;
         }   else {
-                vectorContador[cc-1]++;
-                cc=0; 
+                if(cc!=0){
+                    vectorContador[cc-1]++;
+                    cc=0; 
+                }
             }
 }
