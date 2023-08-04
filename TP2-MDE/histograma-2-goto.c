@@ -12,12 +12,12 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
         else goto in;
 
         out: if(cc != 0){
-            if(cc > cantContadores - 1) {cc = cantContadores;}
-            
-            vectorContador[cc - 1]++;
-            cc = 0;
-        }
+                if(cc > cantContadores - 1) {cc = cantContadores;}
+                
+                vectorContador[cc - 1]++;
+                cc = 0;
+            }
         continue;
-        in: cc++;   
+            in: cc++;   
     } while (flujo != EOF);
 }

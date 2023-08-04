@@ -14,9 +14,6 @@
 
 2. *Maquina de estado* 
 
-    a. Describir en lenguaje dot [DOT] y dentro del archivo histograma.gv la
-    máquina de estado que resuelve el problema planteado.
-
     b. Formalizar la máquina de estados como una n-upla, basarse en el
     Capítulo #1 del Volumen #3 de [MUCH2012].
 
@@ -44,54 +41,46 @@ A = {++cc, (v[i]=cl, ++i), cc=0 }
 Las implementaciones varían en los conceptos que utilizan para representaar
 los estados y las transiciones.
 
-a. Implementación #1: Una variable para el estado actual.
-i. Escribir el programa histograma-1-enum-switch.c que siga la
-Implementación #1, variante enum y switch.
-Esta implementación es la regularización de la implementación de la
-sección 1.5.4 de [KR1988]. Los estados son valores de una variable y
-las transiciones son la selección estructurada y la actualización de esa
-variable. Esta versión es menos eficiente que la versión de [KR1988],
-pero su regularidad permite la automatización de la construcción del
-programa que implementa la máquina de estados. Además de la
-regularidad, esta versión debe:
 
- * Utilizar typedef y enum en vez de define, de tal modo que la
-variable estado se pueda declarar de la siguiente manera: State
-s = Out;
- * Utilizar switch en vez de if.
+**a. Implementación #1**
 
 ii. Responder en readme.md: Indicar ventajas y desventajas de la versión
 de [KR1988] y de esta implementción.
 
-**Respuesta 3.a-ii:**
+**Respuesta a-ii:**
+----------------------
+
+----------------------
 
 
-b. Implementación #2: Sentencias goto (sí, el infame goto)
-- i. Leer la sección 3.8 Goto and labels de [KR1988]
-
-- ii. Leer Go To Statement Considered Harmful de [DIJ1968].
-
-- iii. Leer "GOTO Considered Harmful" Considered Harmful de [RUB1987].
+**b. Implementación #2**
 
 - iv. Responder en readme.md: ¿Tiene alguna aplicación go to hoy en día?
 ¿Algún lenguaje moderno lo utiliza?
 
-**Respuesta 3.b-iv:**
+**Respuesta b-iv:**
 Podría responder que no tiene ninguna aplicación o que sí tiene y ambas serian correctas, ya que la sentencia GOTO está presente en varios lenguajes como C, C++, Fortran e incluso en Assembler. Aunque pueda utilizarse GOTO en cualquiera de estos lenguajes su uso esta desaconsejado o se considera una mala practica debido a que puede llevar a saltos inesperados, loops infinitos, dificultad de comprensión de la continuidad del cóidigo y el mantenimiento el mismo. Existen las estructuras de control mas expresivas como 'if', 'else', 'for', 'while', 'switch', por lo que el uso de GOTO es casi obsoleto. También podemos afirmar que en casi cualquier sentencia que tenga GOTO puede ser reemplazada por otra estructura de control teniendo el mismo efecto.
 
-- v. Escribir el programa histograma-2-goto.c que siga la
-Implementación #2.
-En esta implementación los estados son etiquetas y las transiciones
-son la selección estructurada y el salto incondicional con la sentencia
-goto.
+**c. Implementación #3**
 
-c. Implementación #3: Funciones Recursivas
-i. Leer la sección 4.10 Recursividad de [KR1988].
 ii. Responder en readme.md: ¿Es necesario que las funciones accedan
 a a contadores? Si es así, ¿cómo hacerlo?.
-Leer la sección 1.10 Variables Externas y Alcance y 4.3 Variables
-Externas de [KR1988].
-iii. Escribir el programa, histograma-3-rec.c que siga la implementación
-#3.
-En esta implementación los estados son funciones recursivas y las
-transiciones son la selección estructurada y la invocación recursiva
+
+**Respuesta c.ii**
+-----------------
+
+-----------------
+
+
+**d. Implementación #X**
+
+i. Diseñar una nueva implementación e indicar en Readme.md cómo esa
+implementación representa los estados y cómo las transiciones.
+
+**Respuesta d.i**
+
+                    arch1(1Kb)       arch2      arch3
+Implementación a     0.173s           50.900s    
+Implementación b     0.192s           58.402s         b
+Implementación c     1.073s           c           c       
+Implementación d     0.880s           d           d
