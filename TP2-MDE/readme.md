@@ -78,9 +78,13 @@ i. Diseñar una nueva implementación e indicar en Readme.md cómo esa
 implementación representa los estados y cómo las transiciones.
 
 **Respuesta d.i**
+---------
+--------
 
-                    arch1(1Kb)       arch2      arch3
-Implementación a     0.173s           50.900s    
-Implementación b     0.192s           58.402s         b
-Implementación c     1.073s           c           c       
-Implementación d     0.880s           d           d
+
+**Benchmark**
+                    arch1(1Kb)       arch2(1078kB)      arch3
+Implementación a     0.173s           59.121s           23m0.886s
+Implementación b     0.192s           58.660s         b
+Implementación c     1.073s           -------           c       
+Implementación d     0.880s           58.270S         d

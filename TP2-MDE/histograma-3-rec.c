@@ -9,17 +9,16 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
 
     int flujo = getc(file);
 
-
+    while (flujo!=EOF) {
         if(flujo == ' ' || flujo == '\n' || flujo == '\t' || flujo == EOF){
             stateOut(cc,vectorContador, cantContadores, file);
         }   else {
                 ++cc;
                 stateIn(cc, vectorContador, cantContadores, file);
             }
-
-            flujo = getc(file);
-
-
+        flujo = getc(file);
+    }  
+return;
 }
   
 
@@ -45,9 +44,11 @@ void stateIn(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* f
             if(cc > cantContadores - 1){
                 vectorContador[cantContadores-1]++;
                 cc=0;
+                return;
             }   else {
                     vectorContador[cc-1]++;
                     cc=0; 
+                    return;
                 }
             if(flujo==EOF){return;}
         }
