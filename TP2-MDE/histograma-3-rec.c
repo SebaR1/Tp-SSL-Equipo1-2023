@@ -35,7 +35,6 @@ void stateOut(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* 
                 }
         return;
         }
-
     
 }
 
@@ -43,9 +42,9 @@ void stateIn(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* f
     cc++;
     int flujo = getc(file);
 
-    while (flujo != ' ' && flujo != '\n' && flujo != '\t' && flujo != EOF) {
-        cc++;
-        flujo = getc(file);
+    if (flujo != ' ' && flujo != '\n' && flujo != '\t' && flujo != EOF){
+        stateIn(cc, vectorContador, cantContadores, file);
+    } else {
+        stateOut(cc,vectorContador, cantContadores, file);
     }
-    stateOut(cc,vectorContador, cantContadores, file);
 }
