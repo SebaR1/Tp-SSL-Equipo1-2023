@@ -165,17 +165,17 @@ Este trabajo tiene como objetivo identificar las fases del proceso de traducció
    **b.i** Arroja dos warnings, _declaracion implicita de la funcion 'printf'_ y _incompatibilidad en la declaracion implicita de la funcion built-in 'printf'_
 
    **b.ii** Un prototipo es una declaracion de la funcion donde contiene el encabezado y los parametros que usa dicha funcion.
-   Podrian generar dichos prototipos a traves de la declaracion de dicha funcion o a traves de la implementacion.
+   Podrian generar dichos prototipos a traves de la declaracion de dicha funcion o a traves de la implementacion
 
-   **b.iii** Una declaración implícita, es cuando una funcion puede ser invocada sin haber proporcionado explicitamente su firma o prototipo.
+   **b.iii** Declaracion implicita de una funcion, es aquella que no esta declarada como prototipo si no que es definida directamente
 
-   **b.iv** La especificacion es el standar del lenguaje que indica que normas debe cumplir la implementacion de C.
+   **b.iv** La especificacion es el standar del lenguaje que indica que normas debe cumplir la implementacion de C
 
-   **b.v** En clang cuando no hacemos un #include <stdio.h> detecta a printf() como un error porque no soporta declaraciones implicitas, mientras que GCC tiene a printf como funcion built-in y solo genera warnings.
+   **b.v** En clang cuando no hacemos un #include <stdio.h> detecta a printf() como un error porque no soporta declaraciones implicitas, mientras que GCC tiene a printf como funcion built-in y solo genera warnings
 
-   **b.vi** Una funcion built-in es una funcion definida en la implementacion, como es el caso de _printf_ en GCC.
+   **b.vi** Una funcion built-in es una funcion definida en la implementacion, como es el caso de _printf_ en GCC
 
-   **b.vii** Funciona bien porque GCC lo vincula automaticamente con stdio.h ya que GCC esta basado proyecto GNU de linux, con lo cual debe estar adaptado para todas las versiones, donde las versiones más antiguas toleran declaracion implicitas y las mas actuales no. GCC no va contra la especificacion porque no prohibe las declaraciones implicitas, si no que reglamenta que un codigo bien escrito no contiene declaraciones implicitas.
+   **b.vii** Funciona bien porque GCC lo vincula automaticamente con stdio.h ya que GCC esta basado proyecto GNU de linux, con lo cual debe estar adaptado para todas las versiones, donde las versiones más antiguas toleran declaracion implicitas y las mas actuales no. GCC no va contra la especificacion porque no prohibe las declaraciones implicitas, si no que reglamenta que un codigo bien escrito no contiene declaraciones implicitas
 
 6. **Compilación Separada: Contratos y Módulos**
 
@@ -198,11 +198,11 @@ Este trabajo tiene como objetivo identificar las fases del proceso de traducció
 
    **b. Investigar como en su entorno de desarrollo puede generar un programa ejecutable que se base en las dos unidades de traducción (i.e., archivos fuente, archivos con extensión .c). Luego generar ese ejecutable y probarlo.**
 
-   _Conclusión:_ En su entorno de desarrollo, lo que hace gcc es compilar ambos archivos hasta la etapa de linkeo y en esta etapa usando una misma biblioteca combina ambos archivos en un solo ejecutable. Al principio nos dio 2 warnings que ya vimos en el punto **5.b.i**. Esto nos demuestra que se compilan por separado. Tambien nos dio un warning en hello8.c por prontf ya que gcc permite las declaraciones implicitas y aunque esta funcion "prontf" no este declarada no arroja error.
+   _Conclusión:_ En su entorno de desarrolo, lo que hace gcc es compilar ambos archivos hasta la etapa de linkeo y en esta etapa usando una misma biblioteca combina ambos archivos en un solo ejecutable. Al principio nos dio 2 warnings que ya vimos en el punto **5.b.i**. Esto nos demuestra que se compilan por separado. Tambien nos dio un warning hello8.c por prontf ya que esta no está definida en el standard.
 
    **c. Responder ¿qué ocurre si eliminamos o agregamos argumentos a la invocación de prontf? Justifique.**
 
-   _Conclusión:_ Al momento de eliminar o agregar argumentos a la invocación de prontf no da error, solo tenemos warnings, esto sucede porque el compilador gcc permite funciones built-in por lo que el compilador solo arroja un warning cuando no encuentra una declaracion de prontf. Luego el linker solo se encarga de buscar la declaracion de prontf y reemplazarla, que nos dara un comportamiento indefinido del programa, tendremos resultados inesperados.
+   _Conclusión:_ Al momento de eliminar o agregar argumentos a la invocación de prontf no da error. Esto se debe a que prontf es una funcion wrapper que puede recibir argumentos variables, a su vez printf en su declaracion implicita puede recibir más de una variable. Por lo tanto, se ejecuta sin problema. De igual manera printf siempre va a recibir un argumento que es " por esta razon no va a dar error.
 
    **d. Revisitar el punto anterior, esta vez utilizando un contrato de interfaz en un archivo header.**
 
@@ -237,4 +237,4 @@ Este trabajo tiene como objetivo identificar las fases del proceso de traducció
 
    **d.iv Responder: ¿Qué ventaja da incluir el contrato en los clientes y en el proveedor.**
 
-   _Conclusión:_ La ventaja que nos dara esto es que el proveedor se asegurara que el cliente siga las reglas del contrato, ya que si no lo hace habra un error en tiempo de compilacion (si no tuviese el contrato no habria error solo un warning y se tendria un resultado no deseado) y que el proveedor será obligado a no hacer algo diferente a lo estipulado en el contrato.
+   _Conclusión:_ Las ventajas de tener el contrato en el cliente es que puede tener una independencia de proveedor solo necesitando conocer y cumplir con la interfaz especifica del contrato. Lo que le de libertad para utilizar diferentes proveedores que utilicen la misma interfaz. Tambien se promueve la modularidad y reutilizacion del codigo. La libertad de usar diferentes proveedores permite la incorporacion de nuevas funcionalidades o la mejora de implementacion sin modificar el codigo.

@@ -1,1 +1,0 @@
-void dibujarHistograma (unsigned vectorContador[], int cantContadores);
