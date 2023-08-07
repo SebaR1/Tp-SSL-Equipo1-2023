@@ -23,11 +23,7 @@ void dibujarHistograma(unsigned vectorContador[], int cantContadores ){
             }
         }
         printf("\n");
-    }
-    
-
-   
-       
+    }     
 }
     
 

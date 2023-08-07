@@ -1,10 +1,17 @@
 CC = gcc
 CFLAGS = -c
 
-all: programa1 programa2 programa3 programa4
+all: programa1 programa2 programa3 programa4 programaTest
+
+
+IMP=histograma-1-enum-switch.o \ histograma-2-goto.o  \ histograma-3-rec.o=h3 \ histograma-4-x.o=h4
+
 
 main.o: main.c
 	$(CC) $(CFLAGS) main.c -o main.o
+
+test.o: test.c
+	$(CC) $(CFLAGS) test.c -o test.o
 
 histograma-1-enum-switch.c.o: histograma-1-enum-switch.c
 	$(CC) $(CFLAGS) histograma-1-enum-switch.c -o histograma-1-enum-switch.o
@@ -34,6 +41,9 @@ programa4: main.o histograma-4-x.o graficador.o
 	$(CC) main.o histograma-4-x.o graficador.o -o programa4
 
 
+programaTest: $(IMP) test.o graficador.o
+	$(CC) $(IMP) test.o graficador.o -o programaTest
+
 run1: programa1
 	./programa1 < archivo.txt
 
@@ -45,6 +55,10 @@ run3: programa3
 
 run4: programa4	
 	./programa4 < archivo.txt
-	
+
+runTest: programaTest
+	./programaTest < archivo.txt
+
 clean:
-	rm -f main.o histograma-1-enum-switch.o graficador.o histograma-2-goto.o histograma-3-rec.o histograma-4-x.o programa1 programa2 programa3 programa4
+	rm -f *.o programa1 programa2 programa3 programa4 programaTest
+

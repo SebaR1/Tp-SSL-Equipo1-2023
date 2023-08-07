@@ -1,10 +1,13 @@
 #include <stdio.h>
-#include "histograma.h"
+#include "graficador.h"
+
+#define IMPLEMENTACION_3
+
 void stateOut(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* );
 void stateIn(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* );
 
-void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContadores ,FILE* file )
-{
+
+void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContadores ,FILE* file ){
     unsigned cc = 0;
 
     int flujo;
@@ -48,3 +51,8 @@ void stateIn(unsigned cc, unsigned vectorContador[], int cantContadores, FILE* f
         stateOut(cc,vectorContador, cantContadores, file);
     }
 }
+
+#undef IMPLEMENTACION_2
+
+
+

@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include "histograma.h"
+#include "graficador.h"
 
 void sumarValorAVector(unsigned vector[], int cantContadores, int cc);
 
+#define IMPLEMENTACION_4
 void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContadores ,FILE* file )
 {
     unsigned cc = 0;
@@ -33,3 +34,6 @@ void sumarValorAVector(unsigned vectorContador[], int cantContadores, int cc){
                 }
             }
 }
+
+#undef IMPLEMENTACION_4
+

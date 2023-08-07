@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "histograma.h"
+#include "graficador.h"
 
+#define IMPLEMENTACION_2
 void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContadores ,FILE* file )
 {
     int flujo;
@@ -21,3 +22,6 @@ void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContado
             in: cc++;   
     } while (flujo != EOF);
 }
+
+
+#undef IMPLEMENTACION_2
