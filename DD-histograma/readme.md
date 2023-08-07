@@ -85,9 +85,9 @@ En esta implementacion los estados son representados con los efectos que conllev
 
 Implementación a---------0.560s---------1m05.393s--------37m25.349s
 
-Implementación b---------0.562s---------1m04.569s--------
+Implementación b---------0.562s---------1m04.569s--------41m54.572s
 
-Implementación c---------0.560s----------54.544s
+Implementación c---------0.560s----------54.544s---------41m3.252s
 
-Implementación d---------0.561s----------46.747s--------
+Implementación d---------0.561s----------46.747s--------39m50.919s
 
