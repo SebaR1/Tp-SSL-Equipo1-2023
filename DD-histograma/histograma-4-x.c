@@ -1,39 +1,38 @@
 #include <stdio.h>
 #include "graficador.h"
+#include <ctype.h>
 
-void sumarValorAVector(unsigned vector[], int cantContadores, int cc);
+#define STATE_OUT 0
+#define STATE_IN 1
 
-#define IMPLEMENTACION_4
+void sumarPalabra(unsigned vector[], int cantContadores, int cc);
+
 void cantidadDePalabrasPorSuLongitud (unsigned vectorContador[], int cantContadores ,FILE* file )
 {
     unsigned cc = 0;
     int flujo = getc(file);
+    int state = STATE_OUT;
 
     while (flujo != EOF){
 
-        if(flujo == ' ' || flujo == '\n' || flujo == '\t' || flujo == EOF){
-            sumarValorAVector(vectorContador, cantContadores, cc);
-            cc=0;
+        if(isspace(flujo) != 0){
+            if(state == STATE_IN){
+                sumarPalabra(vectorContador, cantContadores, cc);
+                cc=0;
+                state = STATE_OUT;
+                }
         } else {
             ++cc;
+            state = STATE_IN;
         } 
-    
         flujo = getc(file);
     }
-    sumarValorAVector(vectorContador, cantContadores, cc);
+    sumarPalabra(vectorContador, cantContadores, cc);
 }
 
-void sumarValorAVector(unsigned vectorContador[], int cantContadores, int cc){
-        if(cc > cantContadores - 1){
-            vectorContador[cantContadores-1]++;
+void sumarPalabra(unsigned vectorContador[], int cantContadores, int cc){
+        if(cc > cantContadores - 1){cc=cantContadores;}
+            vectorContador[cc-1]++;
             cc=0;
-        }   else {
-                if(cc!=0){
-                    vectorContador[cc-1]++;
-                    cc=0; 
-                }
-            }
 }
-
-#undef IMPLEMENTACION_4
 

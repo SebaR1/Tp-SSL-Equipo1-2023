@@ -4,9 +4,6 @@ CFLAGS = -c
 all: programa1 programa2 programa3 programa4 programaTest
 
 
-IMP=histograma-1-enum-switch.o \ histograma-2-goto.o  \ histograma-3-rec.o=h3 \ histograma-4-x.o=h4
-
-
 main.o: main.c
 	$(CC) $(CFLAGS) main.c -o main.o
 
