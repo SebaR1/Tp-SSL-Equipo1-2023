@@ -1,3 +1,4 @@
+GCC_VERSION = c2x
 CC = gcc
 CFLAGS = -c
 
@@ -26,16 +27,16 @@ graficador.o: graficador.c
 	$(CC) $(CFLAGS) graficador.c -o graficador.o
 
 programa1: main.o histograma-1-enum-switch.o graficador.o 
-	$(CC) main.o histograma-1-enum-switch.o graficador.o -o programa1
+	$(CC) main.o histograma-1-enum-switch.o graficador.o -o programa1 -std=$(GCC_VERSION)
 
 programa2: main.o histograma-2-goto.o graficador.o
-	$(CC) main.o histograma-2-goto.o graficador.o -o programa2
+	$(CC) main.o histograma-2-goto.o graficador.o -o programa2 -std=$(GCC_VERSION)
 
 programa3: main.o histograma-3-rec.o graficador.o
-	$(CC) main.o histograma-3-rec.o graficador.o -o programa3
+	$(CC) main.o histograma-3-rec.o graficador.o -o programa3 -std=$(GCC_VERSION)
 
 programa4: main.o histograma-4-x.o graficador.o
-	$(CC) main.o histograma-4-x.o graficador.o -o programa4
+	$(CC) main.o histograma-4-x.o graficador.o -o programa4 -std=$(GCC_VERSION)
 
 
 programaTest: $(IMP) test.o graficador.o
