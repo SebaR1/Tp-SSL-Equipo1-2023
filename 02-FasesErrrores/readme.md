@@ -64,7 +64,7 @@ Este trabajo tiene como objetivo identificar las fases del proceso de traducció
     prontf("La respuesta es %d\n");
    ```
 
-   _Conclusión:_
+   _Conclución:_
    Hello2.c escrito. Se ve claramente un error de sintaxis al no tener un cierre de llaves y otro en invocar a una función no declarada que sería “pront”(esto daría un warning, no un error).
 
    **b. Preprocesar hello2.c, no compilar, y generar hello2.i. Analizar su contenido. ¿Qué conclusiones saca?**

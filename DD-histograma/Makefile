@@ -6,22 +6,22 @@ all: programa1 programa2 programa3 programa4 programaTest
 
 
 main.o: main.c
-	$(CC) $(CFLAGS) main.c -o main.o
+	$(CC) $(CFLAGS) main.c -o main.o -std=$(GCC_VERSION)
 
 test.o: test.c
 	$(CC) $(CFLAGS) test.c -o test.o
-
+ 
 histograma-1-enum-switch.c.o: histograma-1-enum-switch.c
 	$(CC) $(CFLAGS) histograma-1-enum-switch.c -o histograma-1-enum-switch.o
 
 histograma-2-goto.o: histograma-2-goto.c
-	$(CC) $(CFLAGS) histograma-2-goto.c -o histograma-2-goto.o
+	$(CC) $(CFLAGS) histograma-2-goto.c -o histograma-2-goto.o -std=$(GCC_VERSION)
 
 histograma-3-rec.o: histograma-3-rec.c
-	$(CC) $(CFLAGS) histograma-3-rec.c -o histograma-3-rec.o
+	$(CC) $(CFLAGS) histograma-3-rec.c -o histograma-3-rec.o -std=$(GCC_VERSION)
 
 histograma-4-x.o: histograma-4-x.c
-	$(CC) $(CFLAGS) histograma-4-x.c -o histograma-4-x.o
+	$(CC) $(CFLAGS) histograma-4-x.c -o histograma-4-x.o -std=$(GCC_VERSION)
 
 graficador.o: graficador.c
 	$(CC) $(CFLAGS) graficador.c -o graficador.o
@@ -38,10 +38,18 @@ programa3: main.o histograma-3-rec.o graficador.o
 programa4: main.o histograma-4-x.o graficador.o
 	$(CC) main.o histograma-4-x.o graficador.o -o programa4 -std=$(GCC_VERSION)
 
+programaTest1: test.o histograma-1-enum-switch.o graficador.o 
+	$(CC) test.o histograma-1-enum-switch.o graficador.o -o programaTest1
 
-programaTest: $(IMP) test.o graficador.o
-	$(CC) $(IMP) test.o graficador.o -o programaTest
-
+programaTest2: test.o histograma-2-goto.o graficador.o
+	$(CC) test.o histograma-2-goto.o graficador.o -o programaTest2 -std=$(GCC_VERSION)
+	
+programaTest3: test.o histograma-3-rec.o graficador.o
+	$(CC) test.o histograma-3-rec.o graficador.o -o programaTest3 -std=$(GCC_VERSION)
+	
+programaTest4: test.o histograma-4-x.o graficador.o
+	$(CC) test.o histograma-4-x.o graficador.o -o programaTest4 -std=$(GCC_VERSION)
+	
 run1: programa1
 	./programa1 < archivo.txt
 
@@ -54,9 +62,18 @@ run3: programa3
 run4: programa4	
 	./programa4 < archivo.txt
 
-runTest: programaTest
-	./programaTest < archivo.txt
+runTest1: programaTest1
+	./programaTest1
+
+runTest2: programaTest2
+	./programaTest2
+
+runTest3: programaTest3
+	./programaTest3
+
+runTest4: programaTest4
+	./programaTest4
 
 clean:
-	rm -f *.o programa1 programa2 programa3 programa4 programaTest
+	rm -f *.o programa1 programa2 programa3 programa4 programaTest1
 
