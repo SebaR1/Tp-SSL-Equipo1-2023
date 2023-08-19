@@ -75,5 +75,5 @@ runTest4: programaTest4
 	./programaTest4
 
 clean:
-	rm -f *.o programa1 programa2 programa3 programa4 programaTest1
+	rm -f *.o programa1 programa2 programa3 programa4 programaTest1 programaTest2 programaTest3 programaTest4
 
