@@ -63,7 +63,7 @@ run4: programa4
 	./programa4 < archivo.txt
 
 runTest1: programaTest1
-	./programaTest1
+	./programaTest1 
 
 runTest2: programaTest2
 	./programaTest2

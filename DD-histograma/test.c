@@ -1,28 +1,46 @@
 #include <stdio.h>
-#include "graficador.h"
+#include <assert.h>
 #include "histograma.h"
-#include <string.h>
+#include "graficador.h"
+#include <stdbool.h> // Necesario para usar el tipo de dato 'bool'
 
-void limpiarbuffer(){
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
+bool verificarImplementacion() {
+    enum {CANTIDAD_DE_CONTADORES = 15};
+    unsigned v[CANTIDAD_DE_CONTADORES] = {0}, cantPalabrasImp=0;
+    bool implementacion;
+    // Abrir el archivo de prueba
+    FILE *archivo = fopen("archivo_de_prueba.txt", "r");
+    if (archivo == NULL) {
+        perror("No se pudo abrir el archivo");
+        return false; 
+    }
+
+    cantidadDePalabrasPorSuLongitud(v, CANTIDAD_DE_CONTADORES, archivo);
+    dibujarHistograma(v, CANTIDAD_DE_CONTADORES);
+    for (int i=0;i<CANTIDAD_DE_CONTADORES,i++;){
+    cantPalabrasImp = v[i] + cantPalabrasImp;
+    }
+
+    assert (cantPalabrasImp!=4);
+
+    fclose(archivo);
+
+
+    implementacion = true;
+    return implementacion;
 }
 
-int main ()
-{
-    int i=0;
-    unsigned cantidadDePalabras=0;
-    enum {CANTIDAD_DE_CONTADORES=15};
-    unsigned v[CANTIDAD_DE_CONTADORES]={0}; 
-    
-    char buffer[10];
+int main() {
 
-    printf("Ingresa el texto de prueba:\n");
-    fgets(buffer, sizeof(buffer), stdin); // Leer el texto desde la consola
-    limpiarbuffer();
-    printf("leiste: %s", buffer);
+bool implementacion;
 
-    cantidadDePalabrasPorSuLongitud(v, CANTIDAD_DE_CONTADORES, stdin);
-    //dibujarHistograma(v, CANTIDAD_DE_CONTADORES);
+implementacion = verificarImplementacion();
+    if (implementacion == true) {
+        printf("Implementacion 1: Pruebas exitosas.\n");
+    } else {
+        printf("Implementacion 1: Pruebas fallidas.\n");
+    }
+
+    return 0;
 }
 
