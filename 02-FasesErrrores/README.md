@@ -238,3 +238,5 @@ Este trabajo tiene como objetivo identificar las fases del proceso de traducció
    **d.iv Responder: ¿Qué ventaja da incluir el contrato en los clientes y en el proveedor.**
 
    _Conclusión:_ Las ventajas de tener el contrato en el cliente es que puede tener una independencia de proveedor solo necesitando conocer y cumplir con la interfaz especifica del contrato. Lo que le de libertad para utilizar diferentes proveedores que utilicen la misma interfaz. Tambien se promueve la modularidad y reutilizacion del codigo. La libertad de usar diferentes proveedores permite la incorporacion de nuevas funcionalidades o la mejora de implementacion sin modificar el codigo.
+
+   
