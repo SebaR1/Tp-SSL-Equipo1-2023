@@ -1,5 +1,6 @@
 #include "Scanner.h"
 #include <stdio.h>
+#include <stdbool.h>
 #define TAM_BUFFER 10
 
 enum TokenType {
@@ -11,18 +12,29 @@ enum TokenType {
  PopResult='\n',
  LexError
 };
+
 typedef enum TokenType TokenType;
 typedef double TokenValue;
+
 struct Token{
  TokenType type;
  TokenValue val;
 };
 
-bool GetNextToken(struct Token *t /*out*/); // Retorna si pudo leer, almacena en t el token leido. 
+typedef struct Token Token;
 
-void Scanner(FILE* c, Token *t){
-int flujo;
-int buffer[TAM_BUFFER];
-    while (flujo=getchar(c)!=EOF)
+void Scanner(FILE* c,Token *t){
 
+
+
+    while (getNextToken(t)==true){
+        
+    }
+
+
+}
+
+
+bool getNextToken(Token *t){
+int lexema, buffer[TAM_BUFFER];  
 }
