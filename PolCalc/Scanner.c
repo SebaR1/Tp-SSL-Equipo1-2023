@@ -27,7 +27,7 @@ void Scanner(FILE* c,Token *t){
 
 
 
-    while (getNextToken(t)==true){
+    for(t;getNextToken(t)==true;){
         
     }
 
@@ -36,5 +36,11 @@ void Scanner(FILE* c,Token *t){
 
 
 bool getNextToken(Token *t){
-int lexema, buffer[TAM_BUFFER];  
+int lexema, *buffer[TAM_BUFFER],tam=TAM_BUFFER,i=0;  
+
+    for(TAM_BUFFER;(tam> 0,lexema=getchar());(--tam,++i)){
+        if (isdigit(atof(lexema))){
+            buffer[i]=lexema;
+        }
+    }
 }
