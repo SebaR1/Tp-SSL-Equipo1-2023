@@ -36,6 +36,8 @@ Num -> ResultNum [label = "Espacio",fontsize="10"]
 mas -> ResultOp [label = "Espacio u operador",fontsize="10"]
 por -> ResultOp [label = "Espacio u operador",fontsize="10"]
 div -> ResultOp [label = "Espacio u operador",fontsize="10"]
+Lit -> ResultNum [label = "Espacio",fontsize="10"]
+
 
 
 }

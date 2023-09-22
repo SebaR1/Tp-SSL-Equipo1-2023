@@ -1,7 +1,10 @@
 #include "Scanner.h"
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
+#include <ctype.h>
 #define TAM_BUFFER 10
+#define SCANNER_H
 
 enum TokenType {
  Number,
@@ -23,6 +26,7 @@ struct Token{
 
 typedef struct Token Token;
 
+
 void Scanner(FILE* c,Token *t){
 
 
@@ -33,14 +37,27 @@ void Scanner(FILE* c,Token *t){
 
 
 }
-
+// 123.2 23 45 + -
 
 bool getNextToken(Token *t){
-int lexema, *buffer[TAM_BUFFER],tam=TAM_BUFFER,i=0;  
+int lexema,tam=TAM_BUFFER,i;  
+char *buffer[TAM_BUFFER];
 
-    for(TAM_BUFFER;(tam> 0,lexema=getchar());(--tam,++i)){
-        if (isdigit(atof(lexema))){
-            buffer[i]=lexema;
+    if (isdigit(lexema=getchar())){
+        for(i=1;((i < TAM_BUFFER) && ((isdigit(lexema=getchar())) || lexema == '.'));i++){
+            buffer[i-1]=lexema;
+        }
+        buffer[++i] = '\0';
+
+        if(isspace(lexema)){
+            t->val = atof(buffer);
+            t->type = Number;
+            return true;
+        } else { 
+            t->type=LexError;
+            return false;
         }
     }
+
+
 }
