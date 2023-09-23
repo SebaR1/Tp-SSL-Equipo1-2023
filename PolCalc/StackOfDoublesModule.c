@@ -1,4 +1,5 @@
 #include "StackofDoublesModule.h"
+#include <stdio.h>
 
 int sp=0;
 double static stack[MAXVAL];
@@ -13,7 +14,7 @@ bool isFull(){
 
 void push(double token){
     if(isFull()){
-        return printf("error de pila llena");
+        printf("error de pila llena");
     } else {
         stack[++sp] = token;
     }
