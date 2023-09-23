@@ -1,63 +1,57 @@
-#include "Scanner.h"
-#include <stdio.h>
-#include <stdbool.h>
-#include <math.h>
+#include "scanner.h"
 #include <ctype.h>
-#define TAM_BUFFER 10
-#define SCANNER_H
+#include <stdio.h>
 
-enum TokenType {
- Number,
- Addition='+',
- Multiplication='*',
- Substraction='-',
- Division='/',
- PopResult='\n',
- LexError
-};
+#define MAXTAMANIO 10
 
-typedef enum TokenType TokenType;
-typedef double TokenValue;
+bool getNextToken(Token *t ){
+    char lexeme[MAXTAMANIO];
 
-struct Token{
- TokenType type;
- TokenValue val;
-};
+    int c, i;
 
-typedef struct Token Token;
+    while((lexeme[0] = c = getchar()) == ' ' || c == '\t'){
+        
+        lexeme[1] = '\0';
 
+        if (c == EOF){
+            return false;
+        }
 
-void Scanner(FILE* c,Token *t){
+        if (!isdigit(c) && c != '.'){
+            t->type = c;
+            t->val = 0;
 
+            return true;
+        }
 
+        i = 0;
+        while(isdigit(lexeme[++i] = c = getchar()));
+        if (c == '.'){
+            while (isdigit(lexeme[++i] = c = getchar()));
+        }
 
-    for(t;getNextToken(t)==true;){
+        lexeme[i] = '\0';
+        t->type = Number; 
+        t->val = atof(lexeme);
         
     }
 
-
-}
-// 123.2 23 45 + -
-
-bool getNextToken(Token *t){
-int lexema,tam=TAM_BUFFER,i;  
-char *buffer[TAM_BUFFER];
-
-    if (isdigit(lexema=getchar())){
-        for(i=1;((i < TAM_BUFFER) && ((isdigit(lexema=getchar())) || lexema == '.'));i++){
-            buffer[i-1]=lexema;
+     if(c != EOF){
+            ungetc(c,stdin);
         }
-        buffer[++i] = '\0';
 
-        if(isspace(lexema)){
-            t->val = atof(buffer);
-            t->type = Number;
-            return true;
-        } else { 
-            t->type=LexError;
-            return false;
-        }
-    }
-
-
+    return true;
 }
+
+/*while (isdigit(c)){
+            while(isdigit(lexeme[++i] = c = getchar()));
+            if (c == '.'){
+                while (isdigit(lexeme[++i] = c = getchar()))
+                ;
+                t->type = Number;
+                t->val = atof(lexeme);        
+
+                return true;
+            }
+        }
+        */
