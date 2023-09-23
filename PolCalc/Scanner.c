@@ -17,13 +17,17 @@ bool getNextToken(Token *t ){
             return false;
         }
 
-        if (!isdigit(c) && c != '.'){
+        if ((!isdigit(c) && c != '.')){
+            if ((lexeme[0] = c = getchar()) == '-'){
+                if (isdigit(c = getchar())) 
+                goto numero;
+                
+            }
             t->type = c;
             t->val = 0;
-
             return true;
         }
-
+        numero:
         i = 0;
         while(isdigit(lexeme[++i] = c = getchar()));
         if (c == '.'){

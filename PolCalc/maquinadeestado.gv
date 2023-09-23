@@ -7,35 +7,35 @@ I [label="Inicio",fixedsize="true",width=1, height=0.8];
 Num [label="Número",fixedsize="true", width=1, height=0.8];
 Nonum[label="No número",fixedsize="true", width=1, height=0.8];
 Err [label="Error",fixedsize="true",width=1, height=0.8];
-mas [label="+",fixedsize="true"];
-por [label="*",fixedsize="true"];
-div [label="/",fixedsize="true"];
+//mas [label="+",fixedsize="true"];
+//por [label="*",fixedsize="true"];
+//div [label="/",fixedsize="true"];
 res [label="-",fixedsize="true"];
 Lit [label="Literal negativo",fixedsize="true", width=1.2, height=0.8];
 Resta [label="Resta",fixedsize="true",width=1, height=0.8];
 ResultNum [label="Resultado número",fixedsize="true",width=1.5, height=0.8];
-ResultOp [label="Resultado op",fixedsize="true",width=1.3, height=0.8];
+//ResultOp [label="Resultado op",fixedsize="true",width=1.3, height=0.8];
 
 I -> Num [label="Dígito", fontsize="10"];
 Num -> Err [label = "No dígito", labeldistance="1" , fontsize="10"];
 Num -> Num [label = "Dígito", labeldistance="1" ,fontsize="10"];
 I -> Nonum [label = "No dígito" ,fontsize="10"];
-Nonum -> mas []
-Nonum -> por []
-Nonum -> div []
+//Nonum -> mas []
+//Nonum -> por []
+//Nonum -> div []
 Nonum -> res []
 res -> Lit [label = "Dígito" ,fontsize="10"]
 res -> Resta [label = "Espacio u operador" ,fontsize="10"]
-mas -> Err [label = "Dígito",fontsize="10"]
-por -> Err [label = "Dígito",fontsize="10"]
-div -> Err [label = "Dígito",fontsize="10"]
+//mas -> Err [label = "Dígito",fontsize="10"]
+//por -> Err [label = "Dígito",fontsize="10"]
+//div -> Err [label = "Dígito",fontsize="10"]
 Lit -> Err [label = "No dígito",fontsize="10"]
 Lit -> Lit [label = "Dígito", labeldistance="1" ,fontsize="10"];
 Num -> ResultNum [label = "Espacio",fontsize="10"]
 
-mas -> ResultOp [label = "Espacio u operador",fontsize="10"]
-por -> ResultOp [label = "Espacio u operador",fontsize="10"]
-div -> ResultOp [label = "Espacio u operador",fontsize="10"]
+//mas -> ResultOp [label = "Espacio u operador",fontsize="10"]
+//por -> ResultOp [label = "Espacio u operador",fontsize="10"]
+//div -> ResultOp [label = "Espacio u operador",fontsize="10"]
 Lit -> ResultNum [label = "Espacio",fontsize="10"]
 
 
