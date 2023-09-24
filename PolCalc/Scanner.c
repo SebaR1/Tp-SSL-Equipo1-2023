@@ -26,11 +26,11 @@ bool getNextToken(Token *t){
     }
 
     i = 0;
-    while(isdigit(lexeme[++i] = c = getchar())){; // Si encuentra algo que sea un dígito empieza a guardar el número
+    while(isdigit(lexeme[++i] = c = getchar())); // Si encuentra algo que sea un dígito empieza a guardar el número
     if (c == '.'){
         while (isdigit(lexeme[++i] = c = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
     }
-    }
+    
 
     lexeme[i] = '\0';
     t->type = Number; 

@@ -7,10 +7,11 @@ int main (void){
     double op2;
 
     while ((getNextToken(&token)) != false){
-        printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
+        //printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
         switch(token.type){
             case Number:
                 push(token.val);
+                //printf("Entro a pushear");
                 break;
             case '+':
                 push(pop() + pop());
@@ -28,7 +29,7 @@ int main (void){
                 break;
             case PopResult:
                 printf("El resultado es: %.2lf\n", pop());
-                printf("entro a popresult");
+                //printf("entro a popresult");
                 break;
             default:
                 printf("Error lexico, escriba bien los caracteres\n");
