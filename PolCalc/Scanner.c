@@ -18,6 +18,22 @@ bool getNextToken(Token *t){
     }
 
     if (!isdigit(c) && c != '.'){ // Si encuentra algo q no sea un dígito ni un punto es un operador y retorna true
+        if((lexeme[0] = c) == '-' && isdigit(lexeme[1] = c = getchar())){
+            i = 1;
+            while(isdigit(lexeme[++i] = c = getchar())); // Si encuentra algo que sea un dígito empieza a guardar el número
+            if (c == '.'){
+            while (isdigit(lexeme[++i] = c = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
+            }
+    
+
+        lexeme[i] = '\0';
+        t->type = Number; 
+        t->val = atof(lexeme); //Convierte el char en un float
+        printf("NumeroNegativo: %s\n", lexeme);
+        
+        return true;
+        }
+        
         t->type = c;
         t->val = 0;
 
@@ -26,6 +42,8 @@ bool getNextToken(Token *t){
     }
 
     i = 0;
+
+ 
     while(isdigit(lexeme[++i] = c = getchar())); // Si encuentra algo que sea un dígito empieza a guardar el número
     if (c == '.'){
         while (isdigit(lexeme[++i] = c = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
@@ -36,7 +54,7 @@ bool getNextToken(Token *t){
     t->type = Number; 
     t->val = atof(lexeme); //Convierte el char en un float
 
-    //printf("Numero: %s\n", lexeme); // Imprimir el lexema leído
+    printf("Numero: %s\n", lexeme); // Imprimir el lexema leído
     
 
     if(c != EOF){
