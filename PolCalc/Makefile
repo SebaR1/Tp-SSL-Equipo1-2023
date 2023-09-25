@@ -19,7 +19,7 @@ programa1: Calculator.o Scanner.o StackOfDoublesModule.o
 
 
 run1: programa1
-	./programa1 < test.txt
+	./programa1 < expresiones.txt
 
 
 clean:

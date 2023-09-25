@@ -14,22 +14,24 @@ fin [label="Fin false",fixedsize="true",width=1, height=0.8];
 res [label="-",fixedsize="true"];
 Lit [label="Literal negativo",fixedsize="true", width=1.2, height=0.8];
 //Resta [label="Resta",fixedsize="true",width=1, height=0.8];
-ResultNum [label="Resultado número",fixedsize="true",width=1.5, height=0.8];
-ResultOp [label="Resultado op",fixedsize="true",width=1.3, height=0.8];
-
+ResultNum [label="Resultado\nnúmero",fixedsize="true",width=1.5, height=0.8];
+ResultOp [label="Resultado\noperador",fixedsize="true",width=1.3, height=0.8];
+Numfloat [label="Número con\npunto",fixedsize="true",width=1.3, height=0.8];
 
 I -> fin [label = "EOF",fontsize = "10"];
 I -> Num [label="Dígito", fontsize="10"];
 I -> I [label="Espacio", fontsize="10"];
-I -> Nonum [label = "No dígito o punto" ,fontsize="10"];
+I -> Nonum [label = "Ni dígito ni punto" ,fontsize="10"];
 //Num -> Err [label = "No dígito", labeldistance="1" , fontsize="10"];
 Num -> Num [label = "Dígito", labeldistance="1" ,fontsize="10"];
-Num -> ResultNum [label = "Espacio",fontsize="10"]
+Num -> Numfloat [label = "Punto", labeldistance="1" ,fontsize="10"];
+Numfloat -> Numfloat [label = "Dígito", labeldistance="1" ,fontsize="10"];
+Num -> ResultNum [label = "Espacio u operador",fontsize="10"];
 //Nonum -> mas []
 //Nonum -> por []
 //Nonum -> div []
-Nonum -> res [label = "menos"]
-Nonum -> ResultOp[label = "no menos"]
+Nonum -> res [label = "Menos"]
+Nonum -> ResultOp[label = "No menos"]
 res -> Lit [label = "Dígito"]
 res -> ResultOp [label = "Espacio u operador" ,fontsize="10"]
 //mas -> Err [label = "Dígito",fontsize="10"]
