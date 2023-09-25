@@ -4,8 +4,7 @@
 
 int main (void){
     Token token;
-    double op2;
-
+    stackItem op2=0, op1=0;
     while ((getNextToken(&token)) != false){
         printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
         switch(token.type){
@@ -13,15 +12,19 @@ int main (void){
                 push(token.val);
                 //printf("Entro a pushear");
                 break;
+            case '-':
+            printf("Token type: %c\n", token.type);
+                op1 = pop();
+                push (pop() - op1);
+                printf("Valor op1:%d, %d\n", op1, pop());
+                break;
             case '+':
                 push(pop() + pop());
                 break;
-            case '-':
-                op2 = pop();
-                push(pop() - op2);
-                break;
             case '/':
                 op2 = pop();
+                if(op2 == 0)
+                printf("No se puede dividir por cero, por si no lo sabia...");
                 push(pop() / op2);
                 break;
             case '*':
@@ -32,7 +35,7 @@ int main (void){
                 //printf("entro a popresult");
                 break;
             default:
-                //printf("Error lexico, escriba bien los caracteres\n");
+                printf("Error lexico el siguiente caracter es invalido: %c\n", token.type);
                 return 1;
         }
     }

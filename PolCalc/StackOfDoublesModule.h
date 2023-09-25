@@ -5,11 +5,13 @@
 
 #define MAXVAL 100
 
+typedef double stackItem;
+
 bool isEmpty();
 bool isFull();
 
-void push(double token);
+void push(stackItem);
 
-double pop(void);
+stackItem pop(void);
 
 #endif
