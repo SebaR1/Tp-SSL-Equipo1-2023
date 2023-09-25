@@ -35,13 +35,12 @@ bool getNextToken(Token *t){
         
         return true;
         }
-        if (lexeme[0] == '-'){
-        t->type = '-';
-        t->val = 0;
-        } else {
+        if(lexeme [1] == '\n');
+        ungetc(lexeme[1],stdin);
+        
         t->type = c;
         t->val = 0;
-            }
+    
    
         
         //ungetc(lexeme[1],stdin);

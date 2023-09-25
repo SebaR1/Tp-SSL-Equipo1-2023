@@ -13,25 +13,26 @@ int main (void){
                 //printf("Entro a pushear");
                 break;
             case '-':
-            printf("Token type: %c\n", token.type);
+            //printf("Token type: %c\n", token.type);
                 op1 = pop();
-                push (pop() - op1);
-                printf("Valor op1:%d, %d\n", op1, pop());
+                push(pop() - op1);
                 break;
             case '+':
                 push(pop() + pop());
                 break;
             case '/':
                 op2 = pop();
-                if(op2 == 0)
-                printf("No se puede dividir por cero, por si no lo sabia...");
+                if(op2 == 0){
+                    printf("No se puede dividir por cero, por si no lo sabia...");
+                    return 1;
+                }
                 push(pop() / op2);
                 break;
             case '*':
                 push(pop() * pop());
                 break;
             case PopResult:
-                printf("El resultado es: %.2lf\n", pop());
+                printf("El resultado es: %f\n", pop());
                 //printf("entro a popresult");
                 break;
             default:
