@@ -42,3 +42,5 @@ Lit -> ResultNum [label = "Espacio",fontsize="10"]
 //por -> ResultOp [label = "Espacio u operador",fontsize="10"]
 //div -> ResultOp [label = "Espacio u operador",fontsize="10"]
 }
+
+//dot -Tpng -o Scanner.png Scanner.gv

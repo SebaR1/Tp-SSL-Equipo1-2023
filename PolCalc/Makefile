@@ -23,5 +23,6 @@ run1: programa1
 
 
 clean:
-	rm -f *.o 
+	rm -f *.o programa1 
+
 

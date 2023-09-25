@@ -26,25 +26,18 @@ bool getNextToken(Token *t){
             if (lexeme[i] == '.'){
             while (isdigit(lexeme[++i] = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
             }
-    
-
-        lexeme[i] = '\0';
-        t->type = Number; 
-        t->val = atof(lexeme); //Convierte el char en un float
-        //printf("NumeroNegativo: %s\n", lexeme);
-        
-        return true;
+            lexeme[i] = '\0';
+            t->type = Number; 
+            t->val = atof(lexeme); //Convierte el char en un float
+            return true;
         }
-        if(lexeme [1] == '\n');
+
+        if(lexeme [1] == '\n' && (c = getchar()) == EOF){
         ungetc(lexeme[1],stdin);
+        }
         
-        t->type = c;
+        t->type = lexeme[0];
         t->val = 0;
-    
-   
-        
-        //ungetc(lexeme[1],stdin);
-        //printf("Operador: %c\n", c); // Imprimir el operador
         return true;
     }
 
@@ -56,30 +49,14 @@ bool getNextToken(Token *t){
         while (isdigit(lexeme[++i] = c = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
     }
     
-
     lexeme[i] = '\0';
     t->type = Number; 
     t->val = atof(lexeme); //Convierte el char en un float
 
-    //printf("Numero: %s\n", lexeme); // Imprimir el lexema leído
-    
 
     if(c != EOF){
         ungetc(c,stdin);
     }
-
     return true;
 }
 
-/*while (isdigit(c)){
-            while(isdigit(lexeme[++i] = c = getchar()));
-            if (c == '.'){
-                while (isdigit(lexeme[++i] = c = getchar()))
-                ;
-                t->type = Number;
-                t->val = atof(lexeme);        
-
-                return true;
-            }
-        }
-        */
