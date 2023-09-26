@@ -6,7 +6,7 @@ rankdir=LR;
 I [label="Invocación\n(-)",fixedsize="true",width=1, height=0.8];
 Num [label="Número",fixedsize="true", width=1, height=0.8];
 Nonum[label="No número",fixedsize="true", width=1, height=0.8];
-//Err [label="Error",fixedsize="true",width=1, height=0.8];
+Err [label="Error léxico\n(+)",fixedsize="true",width=1, height=0.8];
 //mas [label="+",fixedsize="true"];
 //por [label="*",fixedsize="true"];
 //div [label="/",fixedsize="true"];
@@ -28,6 +28,7 @@ Num -> Num [label = "Dígito", labeldistance="1" ,fontsize="10"];
 Num -> Numfloat [label = "Punto", labeldistance="1" ,fontsize="10"];
 Numfloat -> Numfloat [label = "Dígito", labeldistance="1" ,fontsize="10"];
 Numfloat -> ResultNum [label = "No dígito", labeldistance="1" ,fontsize="10"];
+Numfloat -> Err [label = "Punto"];
 Num -> ResultNum [label = "No dígito",fontsize="10"];
 //Nonum -> mas []
 //Nonum -> por []
@@ -45,6 +46,7 @@ Lit -> ResultNum [label = "No dígito",fontsize="10"]
 Lit -> Litpunto [label = "punto", fontsize="10"];
 Litpunto -> Litpunto [label = "Dígito", fontsize="10"];
 Litpunto -> ResultNum [label = "No dígito", fontsize="10"];
+Litpunto -> Err [label = "punto"];
 //mas -> ResultOp [label = "Espacio u operador",fontsize="10"]
 //por -> ResultOp [label = "Espacio u operador",fontsize="10"]
 //div -> ResultOp [label = "Espacio u operador",fontsize="10"]

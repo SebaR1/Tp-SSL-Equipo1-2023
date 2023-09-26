@@ -22,6 +22,10 @@ bool getNextToken(Token *t){
             while(isdigit(lexeme[++i] = getchar())); // Si encuentra algo que sea un dígito empieza a guardar el número
             if (lexeme[i] == '.'){
             while (isdigit(lexeme[++i] = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
+                if(lexeme[i]=='.'){
+                    t->type = LexError;
+                    return true;
+                }
             }
             if(!isdigit(lexeme[i]))
             ungetc(lexeme[i],stdin);
@@ -44,8 +48,12 @@ bool getNextToken(Token *t){
     while(isdigit(lexeme[++i] = c = getchar())); // Si encuentra algo que sea un dígito empieza a guardar el número
     if (c == '.'){
         while (isdigit(lexeme[++i] = c = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
+        if(lexeme[i]=='.'){
+            t->type = LexError;
+            t->val = lexeme[i];
+            return true;
+        }
     }
-
     lexeme[i] = '\0';
     t->type = Number; 
     t->val = atof(lexeme); //Convierte el char en un float
