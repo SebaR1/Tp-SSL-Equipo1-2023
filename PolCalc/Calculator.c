@@ -6,7 +6,7 @@ int main (void){
     Token token;
     stackItem op1, resultado;
     while ((getNextToken(&token)) != false){
-        //printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
+        printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
         switch(token.type){
             case Number:
                 push(token.val);
@@ -42,9 +42,6 @@ int main (void){
                     printf("Faltan operadores o sobran digitos...\n");
                    return 1;
                 }
-            default:
-                printf("Error lexico el siguiente caracter es invalido: %c\n", token.type);
-                return 1;
         }
     }
     return 0;
