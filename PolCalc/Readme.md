@@ -42,6 +42,6 @@ ParteFraccionaria ::= Punto Digito | Punto ParteEntera
 
 Operador::= suma | resta | mult | div
 
-OP::= num num Operador | num OP Operador
+OP::= num  | OP OP Operador
 
 NPI::= OP
