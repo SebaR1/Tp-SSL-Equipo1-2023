@@ -34,9 +34,8 @@ Digito::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 <ParteEntera>::= <Digito> | <ParteEntera> <Digito>
 
-<num>::= <Digito> | <ParteEntera> <ParteFraccionaria>
-
-<ParteFraccionaria> ::= . <Digito> | <Punto> <ParteEntera>
+<num>::= <Digito> | <ParteEntera> '.' <ParteEntera> 
+                  | - <ParteEntera> '.' <ParteEntera> | -<Dígito>
 
 <Operador>::= suma | resta | mult | div
 
