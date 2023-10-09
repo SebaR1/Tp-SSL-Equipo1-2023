@@ -30,18 +30,15 @@ i. Podria haber muchas maneras, depende totalmente del programador, una opción 
 
 _BNF CALCULADORA_
 
-Digito::= 1...9
+Digito::= 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
-Punto::= '.'
+<ParteEntera>::= <Digito> | <ParteEntera> <Digito>
 
-ParteEntera::= Digito | ParteEntera Digito
+<num>::= <Digito> | <ParteEntera> <ParteFraccionaria>
 
-num::= Digito | ParteEntera ParteFraccionaria
+<ParteFraccionaria> ::= . <Digito> | <Punto> <ParteEntera>
 
-ParteFraccionaria ::= Punto Digito | Punto ParteEntera
+<Operador>::= suma | resta | mult | div
 
-Operador::= suma | resta | mult | div
+<OP> ::= <num>  | <OP> <OP> <Operador>
 
-OP::= num  | OP OP Operador
-
-NPI::= OP
