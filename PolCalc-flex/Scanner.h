@@ -11,7 +11,8 @@ enum TokenType {
     Substraction='-',
     Division='/',
     PopResult='\n',
-    LexError
+    LexError,
+    Space=' '
 };
 typedef enum TokenType TokenType;
 typedef double TokenValue;
@@ -21,7 +22,5 @@ struct Token{
  TokenValue val;
 };
 typedef struct Token Token;
-U
-
 
 #endif

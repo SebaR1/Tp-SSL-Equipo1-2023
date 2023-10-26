@@ -8,7 +8,7 @@ all:
 Calculator.o: Calculator.c
 	$(CC) $(CFLAGS) Calculator.c -o Calculator.o -std=$(GCC_VERSION)
 
-Lex.l: Lex.c	
+Lex.c: Lex.l	
 	flex -o Lex.c Lex.l
 
 Lex.o: Lex.c
@@ -18,7 +18,7 @@ StackOfDoublesModule.o: StackOfDoublesModule.c
 	$(CC) $(CFLAGS) StackOfDoublesModule.c -o StackOfDoublesModule.o
 
 programa1: Calculator.o Lex.o StackOfDoublesModule.o 
-	$(CC) Calculator.o Lex.o StackOfDoublesModule.o -o programa1 -std=$(GCC_VERSION) -lfl
+	$(CC) Calculator.o Lex.o StackOfDoublesModule.o -o programa1 -std=$(GCC_VERSION)
 
 
 run1: programa1

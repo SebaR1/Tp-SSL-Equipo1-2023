@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include "StackofDoublesModule.h"
 #include "scanner.h"
-extern Token token;
 
+
+extern bool yylex();
+Token token;
 
 int main (void){
     stackItem op1, resultado;
     while (yylex()){
-        printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
+        //printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
         switch(token.type){
             case Number:
                 push(token.val);
