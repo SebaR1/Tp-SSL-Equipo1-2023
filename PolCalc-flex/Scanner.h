@@ -21,8 +21,7 @@ struct Token{
  TokenValue val;
 };
 typedef struct Token Token;
-
-bool getNextToken(Token *t );
+U
 
 
 #endif

@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include "StackofDoublesModule.h"
 #include "scanner.h"
+extern Token token;
+
 
 int main (void){
-    Token token;
     stackItem op1, resultado;
-    while ((getNextToken(&token)) != false){
+    while (yylex()){
         printf("Token type: %c, Token val: %.2lf\n", token.type, token.val);
         switch(token.type){
             case Number:

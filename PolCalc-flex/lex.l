@@ -2,35 +2,33 @@
 
 %{
 #include <stdio.h>
-#include <stdlib.h>
 #include "Scanner.h" 
 %}
 
 
-
-
-
+Token t;
 DIGITS [0-9]+
 
 %%
 
-{DIGITS}              |
-{DIGITS}"."{DIGITS}?  |
-{DIGITS}"?."{DIGITS}   return Number;
+[-]?{DIGITS}              |
+[-]?{DIGITS}"."{DIGITS}?  |
+[-]?{DIGITS}"?."{DIGITS}   {((t.val = atof(yytext), t.type=Number),return true);}
 
-[-][0-9]+ {
-    yylval.val = -atof(yytext + 1); // Convierte la cadena en un número negativo.
-    return NUMBER;
-}
 
-[+]     return ADDITION; 
-[*]     return MULTIPLICATION; 
-[-]     return SUBTRACTION; 
-[/]     return DIVISION; 
-[\n]    return POP_RESULT; 
+
+
+
+
+[+]     (t.type = '+'); 
+[*]     (t.type = '*'); 
+[-]     (t.type = '-'); 
+[/]     (t.type = '/'); 
+[\n]    (t.type = PopResult,return true); 
 [ \t]   ; // Espacios en blanco y tabulaciones.
+[EOF]   (return false);
 
-.  return LEX_ERROR;
+.       return LEX_ERROR;
 
 
 %%
