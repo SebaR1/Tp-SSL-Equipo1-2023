@@ -24,8 +24,7 @@ programa1: Calculator.o Lex.o StackOfDoublesModule.o
 run1: programa1
 	./programa1 < expresiones.txt
 
-
 clean:
-	rm -f *.o programa1 Lex.c
+	rm -f *.o programa1 Lex.*
 
 
