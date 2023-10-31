@@ -16,8 +16,7 @@ SPACE [ \t]+
 [*]     {token.type = '*'; return true;} 
 [-]     {token.type = '-'; return true;}
 [/]     {token.type = '/'; return true;}
-[\n]    {token.type = PopResult; return true;}  
+[\n]    {token.type = PopResult; return false;}  
 {SPACE}   {token.type = ' '; return true;} // Espacios en blanco y tabulaciones.
-[EOF]   {return false;}
 .       {token.type = LexError; return true;}
 %%

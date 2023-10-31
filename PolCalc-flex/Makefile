@@ -1,30 +1,33 @@
 GCC_VERSION = c2x
 CC = gcc
 CFLAGS = -c
+DFLAGS = -d
+BB = bison
 
 all: 
 
 
-Calculator.o: Calculator.c
-	$(CC) $(CFLAGS) Calculator.c -o Calculator.o -std=$(GCC_VERSION)
+Calculator.tab.c: Calculator.y
+	$(BB) $(DFLAGS) Calculator.y 
+
+Calculator.tab.o: Calculator.tab.c
+	$(CC) $(CFLAGS) Calculator.tab.c -o Calculator.tab.o -std=$(GCC_VERSION)
 
 Lex.c: Lex.l	
 	flex -o Lex.c Lex.l
 
 Lex.o: Lex.c
 	$(CC) $(CFLAGS) Lex.c -o Lex.o
- 
-StackOfDoublesModule.o: StackOfDoublesModule.c
-	$(CC) $(CFLAGS) StackOfDoublesModule.c -o StackOfDoublesModule.o
 
-programa1: Calculator.o Lex.o StackOfDoublesModule.o 
-	$(CC) Calculator.o Lex.o StackOfDoublesModule.o -o programa1 -std=$(GCC_VERSION)
+programa1: Calculator.tab.o Lex.o 
+	$(CC) Calculator.tab.o Lex.o -o programa1 -std=$(GCC_VERSION)
 
 
 run1: programa1
 	./programa1 < expresiones.txt
 
 clean:
-	rm -f *.o programa1 Lex.*
+	rm -f *.o programa1 Lex.* Calculator.tab.*
 
 
+	
