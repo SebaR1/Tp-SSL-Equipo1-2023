@@ -9,9 +9,9 @@ SPACE [ \t]+
 
 %%
 
-{DIGITS}              |
-{DIGITS}"."{DIGITS}?  |
-{DIGITS}?"."{DIGITS}   {yylval.real = atof(yytext); return NUMBER;}
+"-"?{DIGITS}              |
+"-"?{DIGITS}"."{DIGITS}?  |
+"-"?{DIGITS}?"."{DIGITS}   {yylval.real = atof(yytext); return NUMBER;}
 
 [+]     {return ADDITTION;} 
 [*]     {return MULTIPLICATION;} 
@@ -22,3 +22,5 @@ SPACE [ \t]+
 .       {return LEXERROR;}
 
 %%
+
+

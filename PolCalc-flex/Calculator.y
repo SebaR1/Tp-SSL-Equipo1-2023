@@ -8,7 +8,6 @@ void yyerror(const char *s);
 %union 
 {
     double real;
-    char spacer;
 }
 
 %token <real> NUMBER
@@ -33,7 +32,7 @@ expr: NUMBER { $$ = $1; }
     | expr sp expr sp SUBSTRACTION { $$ = $1 - $3; }
     | expr sp expr sp MULTIPLICATION { $$ = $1 * $3; }
     | expr sp expr sp DIVISION { if ($3 != 0) $$ = $1 / $3; else { printf("Error, no se puede dividir por cero, replantéese sus elecciones de vida\n"); } }
-    | expr POP {printf("resultado: %.2f\n", $1);}
+    | expr POP {printf("\nResultado: %.2f\n", $1);}
 
 sp: SPACE {;}
   | TAB {;}
