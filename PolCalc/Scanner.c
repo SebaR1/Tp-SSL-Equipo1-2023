@@ -22,20 +22,20 @@ bool getNextToken(Token *t){
         t->val = 0;
         return true;
     }
-
+//-1.2+
     if (!isdigit(c) && c != '.'){ // Si encuentra algo q no sea un dígito ni un punto es un operador y retorna true
         if(((lexeme[0] ) == '-') && (isdigit(lexeme[1] = getchar()))){
             i = 1;
             while(isdigit(lexeme[++i] = getchar())); // Si encuentra algo que sea un dígito empieza a guardar el número
             if (lexeme[i] == '.'){
             while (isdigit(lexeme[++i] = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
-                if(lexeme[i] == '.' || !isdigit(lexeme[i])){
+                if(lexeme[i] == '.' && !operadorValido(lexeme[i])){
                     t->type = LexError;
                     return true;
                 }
             }
             if(!isdigit(lexeme[i]))
-            ungetc(lexeme[i],stdin);
+                ungetc(lexeme[i],stdin);
             lexeme[i] = '\0';
             t->type = Number; 
             t->val = atof(lexeme); //Convierte el char en un float
@@ -61,10 +61,13 @@ bool getNextToken(Token *t){
     while(isdigit(lexeme[++i] = c = getchar())); // Si encuentra algo que sea un dígito empieza a guardar el número
     if (c == '.'){
         while (isdigit(lexeme[++i] = c = getchar())); // Si encuentra un número fraccionario después de un . lo guarda
-        if(lexeme[i] == '.' || !isdigit(lexeme[i])){
+        if(!isspace(lexeme[i])){
+        if(lexeme[i] == '.' || !operadorValido(lexeme[i])){
             t->type = LexError;
             return true;
         }
+        }
+        
     }
     lexeme[i] = '\0';
     t->type = Number; 
@@ -77,12 +80,5 @@ bool getNextToken(Token *t){
 }
 
 bool operadorValido(char lexeme){
-//printf("%c\n",lexeme);
-    if(lexeme == '-' || lexeme == '+' || lexeme == '/' || lexeme == '*'){
-        return true;
-    } else {
-        
-        return false;
-    }
-       
+    return lexeme == '-' || lexeme == '+' || lexeme == '/' || lexeme == '*';
 }
